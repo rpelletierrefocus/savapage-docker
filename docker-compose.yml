@@ -6,4 +6,4 @@ services:
             - '8632:8632'
         volumes:
             - '$(pwd):/workspace'
-        image: run
+        image: savage:latest
