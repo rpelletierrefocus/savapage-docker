@@ -18,14 +18,16 @@ useradd -r savapage && \
     
 systemctl stop cups.service 
 
-git clone 
-    
-config/cupsd.conf /etc/cups/cupsd.conf
+git clone https://github.com/rpelletierrefocus/savapage-docker.git && \    
+    cd savapage-docker
 
-config/cups-browsed.conf /etc/cups/cups-browsed.conf
+cp /etc/cups/cupsd.conf ./cupsd.conf.bak
 
-COPY config/supervisor/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
+cp config/cupsd.conf /etc/cups/cupsd.conf
 
+cp config/cups-browsed.conf /etc/cups/cups-browsed.conf
+
+echo a4 > /etc/papersize
 COPY config/papersize /etc/papersize
 
 RUN mkdir -p /opt/savapage && cd /opt/savapage && \
