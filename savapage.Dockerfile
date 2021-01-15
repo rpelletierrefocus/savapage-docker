@@ -9,11 +9,11 @@ RUN apt-get install cpio openjdk-11-jdk -y
 
 RUN useradd -r savapage && \
     mkdir -p /opt/savapage && \
+    chown savapage:savapage /opt/savapage && \
     usermod -s /bin/bash savapage && \
     usermod -d /opt/savapage savapage && \
-    mkdir -p /var/log/supervisor && \
     mkdir -p /run/sshd 
-
+    
 COPY config/cupsd.conf /etc/cups/cupsd.conf
 
 COPY config/cups-browsed.conf /etc/cups/cups-browsed.conf
