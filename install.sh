@@ -27,8 +27,7 @@ cp config/cupsd.conf /etc/cups/cupsd.conf
 
 cp config/cups-browsed.conf /etc/cups/cups-browsed.conf
 
-echo a4 > /etc/papersize
-COPY config/papersize /etc/papersize
+cp config/papersize /etc/papersize
 
 RUN mkdir -p /opt/savapage && cd /opt/savapage && \
     wget https://www.savapage.org/download/snapshots/savapage-setup-${SAVA_VERSION}-linux-x64.bin -O savapage-setup-linux.bin && \
